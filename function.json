@@ -1,0 +1,161 @@
+{
+  "type": "vector.function",
+  "input_schema": {
+    "type": "object",
+    "description": "A video game description paired with candidate titles to be ranked.",
+    "properties": {
+      "game_description": {
+        "type": "string",
+        "description": "A description of the video game, including its themes, mechanics, setting, tone, and narrative."
+      },
+      "titles": {
+        "type": "array",
+        "description": "The list of candidate titles to rank for the video game.",
+        "minItems": 2,
+        "items": {
+          "type": "string",
+          "description": "A candidate title for the video game."
+        }
+      }
+    },
+    "required": [
+      "game_description",
+      "titles"
+    ]
+  },
+  "output_length": {
+    "$starlark": "len(input[\"titles\"])"
+  },
+  "input_split": {
+    "$starlark": "[{\"game_description\": input[\"game_description\"], \"titles\": [title]} for title in input[\"titles\"]]"
+  },
+  "input_merge": {
+    "$starlark": "{\"game_description\": input[0][\"game_description\"], \"titles\": [title for i in input for title in i[\"titles\"]]}"
+  },
+  "tasks": [
+    {
+      "type": "placeholder.vector.function",
+      "input_schema": {
+        "type": "object",
+        "description": "A video game description paired with candidate titles to be ranked by thematic relevance.",
+        "properties": {
+          "game_description": {
+            "type": "string",
+            "description": "A description of the video game, including its themes, mechanics, setting, and narrative."
+          },
+          "titles": {
+            "type": "array",
+            "description": "The list of candidate titles to rank by thematic relevance.",
+            "minItems": 2,
+            "items": {
+              "type": "string",
+              "description": "A candidate title for the video game."
+            }
+          }
+        },
+        "required": [
+          "game_description",
+          "titles"
+        ]
+      },
+      "output_length": {
+        "$starlark": "len(input[\"titles\"])"
+      },
+      "input_split": {
+        "$starlark": "[{\"game_description\": input[\"game_description\"], \"titles\": [title]} for title in input[\"titles\"]]"
+      },
+      "input_merge": {
+        "$starlark": "{\"game_description\": input[0][\"game_description\"], \"titles\": [title for i in input for title in i[\"titles\"]]}"
+      },
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    },
+    {
+      "type": "placeholder.vector.function",
+      "input_schema": {
+        "type": "object",
+        "description": "A video game description paired with candidate titles to be ranked by tonal resonance.",
+        "properties": {
+          "game_description": {
+            "type": "string",
+            "description": "A description of the video game, including its tone, mood, emotional register, and feel."
+          },
+          "titles": {
+            "type": "array",
+            "description": "The list of candidate titles to rank by tonal resonance.",
+            "minItems": 2,
+            "items": {
+              "type": "string",
+              "description": "A candidate title for the video game."
+            }
+          }
+        },
+        "required": [
+          "game_description",
+          "titles"
+        ]
+      },
+      "output_length": {
+        "$starlark": "len(input[\"titles\"])"
+      },
+      "input_split": {
+        "$starlark": "[{\"game_description\": input[\"game_description\"], \"titles\": [title]} for title in input[\"titles\"]]"
+      },
+      "input_merge": {
+        "$starlark": "{\"game_description\": input[0][\"game_description\"], \"titles\": [title for i in input for title in i[\"titles\"]]}"
+      },
+      "skip": null,
+      "input": {
+        "$starlark": "input"
+      },
+      "output": {
+        "$starlark": "output"
+      }
+    },
+    {
+      "type": "placeholder.scalar.function",
+      "input_schema": {
+        "type": "object",
+        "description": "A candidate video game title paired with its game description for evaluating memorability.",
+        "properties": {
+          "game_description": {
+            "type": "string",
+            "description": "A description of the video game, providing genre and market context for evaluating distinctiveness."
+          },
+          "title": {
+            "type": "string",
+            "description": "A candidate video game title to evaluate for memorability."
+          }
+        },
+        "required": [
+          "game_description",
+          "title"
+        ]
+      },
+      "skip": null,
+      "map": 0,
+      "input": {
+        "game_description": {
+          "$starlark": "input[\"game_description\"]"
+        },
+        "title": {
+          "$starlark": "map"
+        }
+      },
+      "output": {
+        "$starlark": "[s / sum(output) for s in output] if sum(output) > 0 else [1.0 / len(output) for s in output]"
+      }
+    }
+  ],
+  "input_maps": [
+    {
+      "$starlark": "input[\"titles\"]"
+    }
+  ],
+  "description": "Ranks candidate video game titles given a game description. Evaluates each title on thematic relevance (connection to the game's core themes), tonal resonance (alignment with the game's emotional mood), and memorability (distinctiveness, compactness, and ease of recall), producing a ranking that surfaces the strongest choices."
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "spec": "Rank candidate video game titles by how well each one connects to the game's core themes, subject matter, setting, and central conceit. Given a game description and a list of candidate titles, evaluate which titles most honestly and meaningfully reflect what the game is about. A strong title should feel like it naturally belongs to the game — not in a bluntly literal way, but in a way that captures the essence of the game's subject matter. A player who finishes the game should be able to look back at the title and feel it was the right name all along. Titles that are clever but thematically disconnected from the game's substance should be ranked lower than titles that are meaningfully tethered to the game's core identity.",
+    "token": "25915084-84a2-40dd-a844-972c65b28403"
+  },
+  {
+    "spec": "Rank candidate video game titles by how well each one matches the emotional register, mood, and tone of the game as conveyed by its description. Where thematic relevance concerns what a game is about, tonal resonance concerns how the game feels. Two games might share a theme — say, survival — but feel entirely different: one bleak and harrowing, the other lighthearted and comedic. The title must match not just the subject but the emotional texture. A title should prepare the player for the feel of the experience — it should sound the way the game feels. Titles that create tonal dissonance, such as a whimsical name for a grim game or a somber name for a playful one, should be ranked lower than titles whose tone is pitch-perfect for the game's emotional character.",
+    "token": "03f735c4-0f52-4e9c-9962-866f8a1ec220"
+  },
+  {
+    "spec": "Score how memorable a single video game title is. Evaluate the title's distinctiveness, compactness, rhythm, phonetic appeal, and ease of recall. A great title sticks in the mind — it is easy to remember, easy to share in conversation, and easy to search for. Titles that are overly generic should score lower because they disappear into the noise of a crowded marketplace. Titles that are too long or cumbersome should score lower because they resist being spoken aloud or recalled later. The most memorable titles tend to be distinctive without being alienating, compact without being vague, and have a sonic or visual quality that lodges in memory. A title should be able to survive in the wild — standing out on a storefront page and being findable by someone who heard it mentioned once in passing.",
+    "token": "6b3ff21e-b417-4848-967e-69a96238e234"
+  }
+]

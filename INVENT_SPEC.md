@@ -1,0 +1,1 @@
+rank titles for a video game (given description of the game)
